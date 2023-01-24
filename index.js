@@ -1,9 +1,3 @@
-//POPULATE THE LIST IN THE DOM
-// 1. On DOMcontentloaded, populate the main list
-// 2. Do this by making a fetch request to the db
-// 3. The final .then should iterate over each object in the db and create list items for each property
-// 4. Each list item will then be appropriately appended to the table
-
 
 //Potential Application features
 //1. Sort columns alphanumerically by clicking on the column header
@@ -30,31 +24,10 @@ function initList() {
     fetch('http://localhost:3000/plantList')
     .then(resp => resp.json())
     .then(plantList => {
-        plantList.forEach(plant => {
-        //Create a new row in the table for each plant
-        const newRow = document.createElement('tr')
-        //Create all the data cells for that plant in the table
-        const tdBinomialName = document.createElement('td')
-        const tdCommonName = document.createElement('td')
-        const tdType = document.createElement('td')
-        const tdHeight = document.createElement('td')
-        const tdLightRequirement = document.createElement('td')
-        const tdMoistureRequirement = document.createElement('td')
-        //Assign the data cells their corresponding property values
-        tdBinomialName.innerText = plant.binomialName
-        tdCommonName.innerText = plant.commonName
-        tdType.innerText = plant.type
-        tdHeight.innerText = plant.height
-        tdLightRequirement.innerText = plant.lightRequirement
-        tdMoistureRequirement.innerText = plant.moistureRequirement
-        //Add highlighting event listener
-        addHighlightListener(newRow);
-        //Append the new plant to table#mainList
-        newRow.append(tdBinomialName, tdCommonName, tdType, tdHeight, tdLightRequirement, tdMoistureRequirement)
-        document.querySelector('#mainList').append(newRow)
+        plantList.forEach(plant => {renderOnePlant(plant)})
         })
-    })
 }
+
 
 //SORT ALPHABETICALLY OR NUMERICALLY
 //1. Assign event listeners to all TH tags
@@ -81,3 +54,60 @@ function addHighlightListener(newRow) {
     })
 }
 
+//Add a submit event listener to the form
+function formAdd() {
+    const form = document.querySelector('form')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let plantObj = {
+            binomialName: e.target.binomialNameInput.value,
+            commonName: e.target.commonNameInput.value,
+            type: e.target.typeInput.value,
+            height: e.target.heightInput.value,
+            lightRequirement: e.target.heightInput.value,
+            moistureRequirement: e.target.moistureRequirementInput.value
+        }
+        //console.log(plantObj)
+        renderOnePlant(plantObj)
+        addPlant(plantObj)
+    })
+}
+
+formAdd();
+
+function renderOnePlant(plantObj) {
+    //Create a new row in the table for each plant
+    const newRow = document.createElement('tr')
+    //Create all the data cells for that plant in the table
+    const tdBinomialName = document.createElement('td')
+    const tdCommonName = document.createElement('td')
+    const tdType = document.createElement('td')
+    const tdHeight = document.createElement('td')
+    const tdLightRequirement = document.createElement('td')
+    const tdMoistureRequirement = document.createElement('td')
+    //Assign the data cells their corresponding property values
+    tdBinomialName.innerText = plantObj.binomialName
+    tdCommonName.innerText = plantObj.commonName
+    tdType.innerText = plantObj.type
+    tdHeight.innerText = plantObj.height
+    tdLightRequirement.innerText = plantObj.lightRequirement
+    tdMoistureRequirement.innerText = plantObj.moistureRequirement
+    //Add highlighting event listener
+    addHighlightListener(newRow);
+    //Append the new plant to table#mainList
+    newRow.append(tdBinomialName, tdCommonName, tdType, tdHeight, tdLightRequirement, tdMoistureRequirement)
+    document.querySelector('#mainList').append(newRow)
+}
+
+function addPlant(plantObj) {
+    fetch('http://localhost:3000/plantList', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(plantObj)
+    })
+        .then(resp => resp.json())
+        .then(plant => console.log(plant))
+    
+}
