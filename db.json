@@ -5,9 +5,19 @@
             "binomialName": "Agrostis exarata",
             "commonName": "Spike Bentgrass",
             "type": "Grass",
-            "height": 5,
+            "height": "3-6'",
             "lightRequirement": "Full Sun",
             "moistureRequirement": ["Moist, Wet"]
+        },
+        {            
+            "id": 1,
+            "binomialName": "Alopecurus geniculatus",
+            "commonName": "Water Foxtail",
+            "type": "Grass",
+            "height": "20\"",
+            "lightRequirement": "Full Sun",
+            "moisutreRequirement": ["Moist, Wet"]
         }
+
     ]
 }
