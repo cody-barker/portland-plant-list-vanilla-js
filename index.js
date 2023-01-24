@@ -5,6 +5,21 @@
 // 4. Each list item will then be appropriately appended to the table
 
 
+//Potential Application features
+//1. Sort columns alphanumerically by clicking on the column header
+//2. Highlight plants when clicking anywhere on their row
+//3. Filter the list based on clicked plants to create a custom list
+//4. A form for adding new plants to the database
+//5. Click on a plant img thumbnail to expand it
+
+//Project Requirements
+//3 Distinct Event Listener Types
+//  x  1) DOMContentLoaded
+//  x  2) Click - sort
+//  x  3) Click - highlight row
+//     4) Submit - form
+//     5) Click - expand image
+
 
 
 
@@ -32,6 +47,8 @@ function initList() {
         tdHeight.innerText = plant.height
         tdLightRequirement.innerText = plant.lightRequirement
         tdMoistureRequirement.innerText = plant.moistureRequirement
+        //Add highlighting event listener
+        addHighlightListener(newRow);
         //Append the new plant to table#mainList
         newRow.append(tdBinomialName, tdCommonName, tdType, tdHeight, tdLightRequirement, tdMoistureRequirement)
         document.querySelector('#mainList').append(newRow)
@@ -39,9 +56,9 @@ function initList() {
     })
 }
 
-
 //SORT ALPHABETICALLY OR NUMERICALLY
 //1. Assign event listeners to all TH tags
+//src = https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript
 
 const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
@@ -56,3 +73,11 @@ document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() =
         .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
         .forEach(tr => table.appendChild(tr) );
 })));
+
+//Clicking anywhere in a row highlights it
+function addHighlightListener(newRow) {
+    newRow.addEventListener('click', (e) => {
+        e.target.parentNode.style.backgroundColor = (e.target.parentNode.style.backgroundColor === 'yellow' ) ? ('transparent'):('yellow');
+    })
+}
+

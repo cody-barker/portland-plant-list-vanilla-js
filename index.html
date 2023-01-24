@@ -11,6 +11,22 @@
 <body>
     <h1>Portland Native Plants</h1>
     <div>
+        <form>
+            <label for="binomialName">Binomial Name</label>
+            <label for="commonName">Common Name</label>
+            <label for="type">Type</label>
+            <label for="height">Height</label>
+            <label for="lightRequirement">Light Requirement</label>
+            <label for="moistureRequirement">Moisture Requirement</label>
+            <input type="text" name="binomialName" id="binomialNameInput" required>
+            <input type="text" name="commonName" id="commonNameInput" required>
+            <input type="text" name="type" id="typeInput" required>
+            <input type="text" name="height" id="heightInput" required>
+            <input type="text" name="lightRequirement" id="lightRequirementInput" required>
+            <input type="text" name="moistureRequirement" id="moistureRequirementInput" required>
+        </form>
+    </div>
+    <div>
         <table id = "mainList">
             <tr>
                 <th id = 'binomialName'>Binomial Name</th>
