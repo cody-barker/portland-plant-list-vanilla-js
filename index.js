@@ -1,21 +1,10 @@
-//LIST ITEM TEMPLATE FOR DB.JSON
-// Comments aren't allowed in db.json files
-// {            
-//     "id": ,
-//     "binomialName": "",
-//     "commonName": "",
-//     "type": "",
-//     "height": ,
-//     "lightRequirement": "",
-//     "moisutreRequirement": [""]
-// }
-
-
-//PLANNING
+//POPULATE THE LIST IN THE DOM
 // 1. On DOMcontentloaded, populate the main list
 // 2. Do this by making a fetch request to the db
 // 3. The final .then should iterate over each object in the db and create list items for each property
 // 4. Each list item will then be appropriately appended to the table
+
+
 
 
 
@@ -43,9 +32,27 @@ function initList() {
         tdHeight.innerText = plant.height
         tdLightRequirement.innerText = plant.lightRequirement
         tdMoistureRequirement.innerText = plant.moistureRequirement
-        //Append the new plant to the mainList table
+        //Append the new plant to table#mainList
         newRow.append(tdBinomialName, tdCommonName, tdType, tdHeight, tdLightRequirement, tdMoistureRequirement)
         document.querySelector('#mainList').append(newRow)
         })
     })
 }
+
+
+//SORT ALPHABETICALLY OR NUMERICALLY
+//1. Assign event listeners to all TH tags
+
+const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+// do the work...
+document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+    const table = th.closest('table');
+    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+        .forEach(tr => table.appendChild(tr) );
+})));
