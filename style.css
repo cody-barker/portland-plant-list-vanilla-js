@@ -1,7 +1,15 @@
+table {
+    border-collapse: collapse;
+    margin-top: 16px;
+}
 
+th, thead {
+    width: 16.666%;
+}
 
-table, th, td {
-    border: 1px solid;
+th, td{
+    border: 1px solid black;
+    padding: 4px;
 }
 
 th {
