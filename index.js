@@ -1,23 +1,30 @@
 
 //Potential Application features
-//1. Sort columns alphanumerically by clicking on the column header
-//2. Highlight plants when clicking anywhere on their row
-//3. Filter the list based on clicked plants to create a custom list
-//4. A form for adding new plants to the database
-//5. Click on a plant img thumbnail to expand it
+// x 1. Sort columns alphanumerically by clicking on the column header
+// x 2. Highlight plants when clicking anywhere on their row
+//   3. Filter the list based on clicked plants to create a custom list
+// x 4. A form for adding new plants to the database
+//   5. Click on a plant img thumbnail to expand it
+//   6. Filter the list based on clicked plants to create a custom list
 
 //Project Requirements
-//3 Distinct Event Listener Types
-//  x  1) DOMContentLoaded
-//  x  2) Click - sort
-//  x  3) Click - highlight row
-//     4) Submit - form
-//     5) Click - expand image
+// x  3 Distinct Event Listener Types
+// x    1) Click - sort columns alphanumerically  
+// x    2) Click - highlight row
+// x    3) DOMContentLoaded - render plants to the list (already deferring index.js though, otherwise)
+// x    4) Submit - form
+//      5) Click - expand image
+//
+// x  Must return at least 5 objects from the server with >=3 attributes per object
+// x  Request/Response cycle should be async, using JSON
+// x  Entire app must run on a single page
+// x  No redirects or reloads
+// x  Must implement at least one instance of array iteration (see plantList.forEach in fn initList())
 
+//Stretch goals
+// x  Use json-server in your project to persist your app's interactivity
 
-
-
-//After the html loads, populate the main list
+//After the html loads, populate the full Plant List
 document.addEventListener("DOMContentLoaded", initList)
 
 function initList() {
@@ -68,7 +75,6 @@ function formAdd() {
             moistureRequirement: e.target.moistureRequirementInput.value
         }
         //console.log(plantObj)
-        renderOnePlant(plantObj)
         addPlant(plantObj)
     })
 }
@@ -99,6 +105,7 @@ function renderOnePlant(plantObj) {
     document.querySelector('#mainList').append(newRow)
 }
 
+//Persist the form submission to the database and render it to the DOM
 function addPlant(plantObj) {
     fetch('http://localhost:3000/plantList', {
         method: 'POST',
@@ -108,6 +115,5 @@ function addPlant(plantObj) {
         body: JSON.stringify(plantObj)
     })
         .then(resp => resp.json())
-        .then(plant => console.log(plant))
-    
+        .then(() => renderOnePlant(plantObj))
 }

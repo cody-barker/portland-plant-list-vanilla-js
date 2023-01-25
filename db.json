@@ -1,5 +1,5 @@
 {
-"plantList": [
+  "plantList": [
     {
       "id": 0,
       "binomialName": "Agrostis exarata",
@@ -2007,5 +2007,5 @@
       "lightRequirement": "Full Sun, Partial Sun, Full Shade",
       "moistureRequirement": "Dry, Moist, Wet"
     }
-   ]
+  ]
 }
