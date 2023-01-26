@@ -21,12 +21,15 @@ From the parent directory cody@holodiscus:~/code/labs/phase-1/phase-1-project, r
 ## Features
 
 **Custom Plant Lists**
+
 Click anywhere within a plant row to highlight that row and build your own custom plant list! Click again to remove the highlight.
 
 **Sorting**
+
 Click on any of the column headers to sort the table alphanumerically based on that header. Find all the plants that prefer dry conditions, or aLL the plants that prefer moist or wet environments.
 
 **Submit a Plant to the List**
+
 The page includes a form which allows you to add more plants to the database!
 
 
@@ -37,9 +40,7 @@ If you need help, email me at codybarker.or@gmail.com
 
 ## Project Status
 
-Still in development
-
-**Not licensed**
+Still in development and unlicensed
 
 
 ## Author
