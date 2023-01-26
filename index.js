@@ -8,12 +8,11 @@
 //   6. Filter the list based on clicked plants to create a custom list
 
 //Project Requirements
-// x  3 Distinct Event Listener Types
-// x    1) Click - sort columns alphanumerically  
-// x    2) Click - highlight row
-// x    3) DOMContentLoaded - render plants to the list (already deferring index.js though, otherwise)
-// x    4) Submit - form
-//      5) Click - expand image
+// x  3 Distinct Event Listener Types 
+// x    1) Click - highlight row, sort columns alphanumerically
+// x    2) DOMContentLoaded - render plants to the list, add the submission form, add the column sorting feature
+// x    3) Submit - form
+//      4) Click - expand image
 //
 // x  Must return at least 5 objects from the server with >=3 attributes per object
 // x  Request/Response cycle should be async, using JSON
@@ -27,6 +26,7 @@
 //After the html loads, populate the full Plant List
 document.addEventListener("DOMContentLoaded", initList)
 document.addEventListener("DOMContentLoaded", formAdd)
+document.addEventListener("DOMContentLoaded", columnSort)
 
 function initList() {
     fetch('http://localhost:3000/plantList')
@@ -40,20 +40,21 @@ function initList() {
 //SORT ALPHABETICALLY OR NUMERICALLY
 //1. Assign event listeners to all TH tags
 //src = https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript
+function columnSort() {
+    const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
-const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-
-const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+    const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
     v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
     )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 
 // do the work...
-document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+    document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
     const table = th.closest('table');
     Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
         .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
         .forEach(tr => table.appendChild(tr) );
 })));
+}
 
 //Clicking anywhere in a row highlights it
 function addHighlightListener(newRow) {
