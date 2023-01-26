@@ -93,6 +93,7 @@ function renderOnePlant(plantObj) {
     const tdMoistureRequirement = document.createElement('td')
     //Assign the data cells their corresponding property values
     tdBinomialName.innerText = plantObj.binomialName
+    tdBinomialName.style.fontStyle = "italic"
     tdCommonName.innerText = plantObj.commonName
     tdType.innerText = plantObj.type
     tdHeight.innerText = plantObj.height

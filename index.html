@@ -9,37 +9,20 @@
     <title>Portland Native Plants</title>
 </head>
 <body>
-    <h1>Portland Native Plants</h1>
+    <h1>Native Plants of Portland</h1>
+    <h2>
+        Helping you find the right plant, for the right place.
+    </h2>
     <div class="addPlantForm">
-        <h3>Add a Plant to the List</h2>
         <form>
-            <div>
-                <label for="binomialName">Binomial Name:</label>
-                <input type="text" name="binomialName" id="binomialNameInput" required>
-            </div>
-            <div>
-                <label for="commonName">Common Name:</label>
-                <input type="text" name="commonName" id="commonNameInput" required>
-            </div>
-            <div>
-                <label for="type">Type:</label>
-                <input type="text" name="type" id="typeInput" required>
-            </div>
-            <div>
-                <label for="height">Height:</label>
-                <input type="text" name="height" id="heightInput" required>
-            </div>
-            <div>
-                <label for="lightRequirement">Light Requirement:</label>
-                <input type="text" name="lightRequirement" id="lightRequirementInput" required>
-            </div>
-            <div>
-                <label for="moistureRequirement">Moisture Requirement:</label>
-                <input type="text" name="moistureRequirement" id="moistureRequirementInput" required>
-            </div>
-            <div>
-                <input id="addPlantSubmit" type="submit" value="Submit a Plant">
-            </div>
+            <h3 id="formTitle">Add a Plant to the List</h3>
+            <input type="text" name="binomialName" id="binomialNameInput" placeholder="Binomial Name" required>
+            <input type="text" name="commonName" id="commonNameInput" placeholder="Common Name" required>
+            <input type="text" id="typeInput" placeholder="Type" required>
+            <input type="text" id="heightInput" placeholder="Height" required>
+            <input type="text"  id="lightRequirementInput" placeholder="Light Requirement" required>
+            <input type="text"  id="moistureRequirementInput" placeholder="Moisture Requirement" required>
+            <input id="addPlantSubmit" type="submit" value="Submit a Plant">
         </form>
     </div>
     <div>
