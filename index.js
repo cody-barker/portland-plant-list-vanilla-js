@@ -26,6 +26,7 @@
 
 //After the html loads, populate the full Plant List
 document.addEventListener("DOMContentLoaded", initList)
+document.addEventListener("DOMContentLoaded", formAdd)
 
 function initList() {
     fetch('http://localhost:3000/plantList')
@@ -79,8 +80,6 @@ function formAdd() {
         addPlant(plantObj)
     })
 }
-
-formAdd();
 
 function renderOnePlant(plantObj) {
     //Create a new row in the table for each plant
