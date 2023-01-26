@@ -312,7 +312,7 @@
       "commonName": "Spring Beauty",
       "type": "Herb",
       "height": "4-8\"",
-      "lightRequirement": "Part Sun",
+      "lightRequirement": "Partial Sun",
       "moistureRequirement": "Moist"
     },
     {
@@ -960,7 +960,7 @@
       "commonName": "Small Flowered Lupine",
       "type": "Herb",
       "height": "2'",
-      "lightRequirement": "Full sun",
+      "lightRequirement": "Full Sun",
       "moistureRequirement": "Dry, Moist"
     },
     {
@@ -1257,7 +1257,7 @@
       "commonName": "California Figwort",
       "type": "Herb",
       "height": "3'",
-      "lightRequirement": "Part Sun",
+      "lightRequirement": "Partial Sun",
       "moistureRequirement": "Moist"
     },
     {
