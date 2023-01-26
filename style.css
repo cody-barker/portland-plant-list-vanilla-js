@@ -68,6 +68,9 @@ header {
 }
 
 h1 {
+    color: #ffffff;
+    font-size: 50px;
+    background-color: rgb(4, 170, 68, 0.7);
 }
 
 .sortGlyph {
