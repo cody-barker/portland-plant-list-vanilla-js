@@ -20,6 +20,10 @@ th, td{
     padding: 4px;
 }
 
+td {
+    background-color: transparent;
+}
+
 th {
     cursor: pointer;
 }

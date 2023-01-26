@@ -57,7 +57,8 @@ document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() =
 //Clicking anywhere in a row highlights it
 function addHighlightListener(newRow) {
     newRow.addEventListener('click', (e) => {
-        e.target.parentNode.style.backgroundColor = (e.target.parentNode.style.backgroundColor === 'yellow' ) ? ('transparent'):('yellow');
+        e.target.parentNode.style.backgroundColor = (e.target.parentNode.style.backgroundColor === 'rgb(4, 170, 109)' ) ? ('transparent'):('rgb(4, 170, 109)');
+        console.log(e.target.parentNode.style.backgroundColor)
     })
 }
 
