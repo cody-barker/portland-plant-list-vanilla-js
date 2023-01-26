@@ -32,8 +32,10 @@ form {
     width: 400px;
     border: 1px solid black;
     padding: 4px;
+    margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
+    background-color: #ffffff;
 }
 
 input {
@@ -64,7 +66,7 @@ header {
     margin-bottom: 20px;
     background-image: url("photos/gotter prairie.jpg");
     background-position: middle;
-    background-size: 100%;
+    background-size: 110%;
 }
 
 h1 {
@@ -76,6 +78,7 @@ h1 {
 h2 {
     color: white;
     font-size: 30px;
+    margin-top: 50px;
 }
 
 .sortGlyph {
