@@ -63,14 +63,19 @@ header {
     height: 600px;
     margin-bottom: 20px;
     background-image: url("photos/gotter prairie.jpg");
-    background-position: bottom;
-    background-size: cover;
+    background-position: middle;
+    background-size: 100%;
 }
 
 h1 {
     color: #ffffff;
     font-size: 50px;
-    background-color: rgb(4, 170, 68, 0.7);
+    background-color: rgba(59, 122, 63, 0.8);
+}
+
+h2 {
+    color: white;
+    font-size: 30px;
 }
 
 .sortGlyph {
