@@ -59,11 +59,15 @@ input[type=submit] {
     font-size: 16px;
 }
 
+header {
+    height: 600px;
+    margin-bottom: 20px;
+    background-image: url("photos/gotter prairie.jpg");
+    background-position: bottom;
+    background-size: cover;
+}
+
 h1 {
-    background-color: #04AA6D;
-    height: 50px;
-   
-   
 }
 
 .sortGlyph {
