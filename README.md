@@ -26,7 +26,7 @@ Click anywhere within a plant row to highlight that row and build your own custo
 
 **Sorting**
 
-Click on any of the column headers to sort the table alphanumerically based on that header. Find all the plants that prefer dry conditions, or aLL the plants that prefer moist or wet environments.
+Click on any of the column headers to sort the table alphanumerically based on that header. Find all the plants that prefer dry conditions, or all the plants that prefer moist or wet environments.
 
 **Submit a Plant to the List**
 
