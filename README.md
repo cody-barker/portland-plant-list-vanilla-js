@@ -32,7 +32,7 @@ Click on any of the column headers to sort the table alphanumerically based on t
 
 The page includes a form which allows you to add more plants to the database!
 
-![](photos/Phase-1-Project-README-GIF.gif)
+![](photos/Phase-1-Project-README-GIF.gif | width=720)
 
 ## Support
 
