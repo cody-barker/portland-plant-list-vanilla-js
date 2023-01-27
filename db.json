@@ -2006,15 +2006,6 @@
       "height": "200'",
       "lightRequirement": "Full Sun, Partial Sun, Full Shade",
       "moistureRequirement": "Dry, Moist, Wet"
-    },
-    {
-      "binomialName": "Actaea rubra",
-      "commonName": "Red Baneberry",
-      "type": "Shrub",
-      "height": "1'-3'",
-      "lightRequirement": "Partial Sun, Full Shade",
-      "moistureRequirement": "Moist, Wet",
-      "id": 223
     }
   ]
 }
