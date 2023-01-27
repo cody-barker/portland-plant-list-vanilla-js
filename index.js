@@ -74,7 +74,7 @@ function formAdd() {
             commonName: e.target.commonNameInput.value,
             type: e.target.typeInput.value,
             height: e.target.heightInput.value,
-            lightRequirement: e.target.heightInput.value,
+            lightRequirement: e.target.lightRequirementInput.value,
             moistureRequirement: e.target.moistureRequirementInput.value
         }
         //console.log(plantObj)
@@ -119,3 +119,4 @@ function addPlant(plantObj) {
         .then(resp => resp.json())
         .then(() => renderOnePlant(plantObj))
 }
+
