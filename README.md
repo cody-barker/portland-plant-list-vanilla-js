@@ -14,8 +14,7 @@ The header photo of a field of Camas is my own, taken at Gotter Prairie, one of 
 
 ## How to See the List
 
-The api for the list is a database I created, and is only accessible via json-server hosted locally.
-From the parent directory cody@holodiscus:~/code/labs/phase-1/phase-1-project, run json-server --watch db.json in order to serve up the database.
+The api for the list is a database I created, and is only accessible by cloning the repo and running a json server. See the heading "For Collaborators" at the bottom of the README for more info.
 
 
 ## Features
@@ -26,7 +25,7 @@ Click anywhere within a plant row to highlight that row and build your own custo
 
 **Sorting**
 
-Click on any of the column headers to sort the table alphanumerically based on that header. Find all the plants that prefer dry conditions, or all the plants that prefer moist or wet environments.
+Click on any of the column headers to sort the table alphanumerically based on that header. Find all the plants that prefer dry conditions, or all the plants that prefer moist or wet environments, etc.
 
 **Submit a Plant to the List**
 
@@ -87,7 +86,3 @@ Meaningful alterations can be submitted for approval by emailing me at codybarke
 ## Author
 
 Cody Barker
-
-
-
-
