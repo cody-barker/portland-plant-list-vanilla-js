@@ -19,15 +19,23 @@
 // x  Entire app must run on a single page
 // x  No redirects or reloads
 // x  Must implement at least one instance of array iteration (see plantList.forEach in fn initList())
+// x  Detailed README
+//    Video of the features
+//    Blog post
+//    Project Review
 
 //Stretch goals
 // x  Use json-server in your project to persist your app's interactivity
 
 //After the html loads, populate the full Plant List
-document.addEventListener("DOMContentLoaded", initList)
-document.addEventListener("DOMContentLoaded", formAdd)
-document.addEventListener("DOMContentLoaded", columnSort)
+//pass an anonymous function instead of listing all 3
+function initialize () {
+    initList()
+    formAdd()
+    columnSort()
+}
 
+//fetch and render the main plant list
 function initList() {
     fetch('http://localhost:3000/plantList')
     .then(resp => resp.json())
@@ -36,10 +44,28 @@ function initList() {
         })
 }
 
+//Add a submit event listener to the form
+function formAdd() {
+    const form = document.querySelector('form')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let plantObj = {
+            binomialName: e.target.binomialNameInput.value,
+            commonName: e.target.commonNameInput.value,
+            type: e.target.typeInput.value,
+            height: e.target.heightInput.value,
+            lightRequirement: e.target.lightRequirementInput.value,
+            moistureRequirement: e.target.moistureRequirementInput.value
+        }
+        addPlant(plantObj)
+    })
+}
 
-//SORT ALPHABETICALLY OR NUMERICALLY
+//SORT ALPHANUMERICALLY
 //1. Assign event listeners to all TH tags
 //src = https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript
+//Consider making this feature part of a separate branch before the review
+//Learn git branching (game)
 function columnSort() {
     const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
@@ -64,24 +90,9 @@ function addHighlightListener(newRow) {
     })
 }
 
-//Add a submit event listener to the form
-function formAdd() {
-    const form = document.querySelector('form')
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-        let plantObj = {
-            binomialName: e.target.binomialNameInput.value,
-            commonName: e.target.commonNameInput.value,
-            type: e.target.typeInput.value,
-            height: e.target.heightInput.value,
-            lightRequirement: e.target.lightRequirementInput.value,
-            moistureRequirement: e.target.moistureRequirementInput.value
-        }
-        //console.log(plantObj)
-        addPlant(plantObj)
-    })
-}
 
+//consider refactoring with helper functions
+//the rendering might be done by a function that takes a plantObj as an argument, and creates all the td cells with its properties
 function renderOnePlant(plantObj) {
     //Create a new row in the table for each plant
     const newRow = document.createElement('tr')
@@ -120,3 +131,6 @@ function addPlant(plantObj) {
         .then(() => renderOnePlant(plantObj))
 }
 
+
+//Run JS after domcontent loaded
+document.addEventListener("DOMContentLoaded", initialize)

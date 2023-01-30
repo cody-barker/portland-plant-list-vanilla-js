@@ -47,3 +47,11 @@ Still in development and unlicensed
 ## Author
 
 Cody Barker
+
+
+
+//instructions for collaborators
+//how to fork it, host it, etc
+//look at live coding practice videos
+//wes bos (coding tutor) JS30.com
+// you don't know JS (v2) for info on this keyword
