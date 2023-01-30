@@ -112,8 +112,6 @@ function addPlant(plantObj) {
 
 //SORT ALPHANUMERICALLY
 //src = https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript
-//Consider making this feature part of a separate branch before the review
-//Learn git branching (game)
 // //Quick explanation
 // 1. add a click event to all header (th) cells...
 // 2. for the current table, find all rows (except the first)...
@@ -134,3 +132,6 @@ function columnSort() {
         .forEach(tr => table.appendChild(tr) );
 })));
 }
+
+
+
