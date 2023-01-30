@@ -44,14 +44,50 @@ If you need help, email me at codybarker.or@gmail.com
 Still in development and unlicensed
 
 
+## For Collaborators
+If you'd like to contribute to this project, create and/or navigate to a directory on your machine and clone the repo by running the following in your terminal:
+
+`git clone git@github.com:cody-barker/phase-1-project.git`
+
+Navigate into the project directory by running:
+
+`cd phase-1-project/`
+
+You will need to start a json server in order to interact with the plant list database.
+
+You can do so by running the following in your terminal:
+
+`json-server --watch db.json`
+
+You should see a message like this if you were successful:
+
+` \{^_^}/ hi!`
+
+`Loading db.json`
+
+`Done`
+
+`Resources`
+
+` http://localhost:3000/plantList`
+
+`Home`
+
+`http://localhost:3000`
+
+`Type s + enter at any time to create a snapshot of the database`
+
+`Watching...`
+
+
+Keep that tab open in your terminal in order to continue hosting the database.
+
+Meaningful alterations can be submitted for approval by emailing me at codybarker.or@gmail.com
+
 ## Author
 
 Cody Barker
 
 
 
-//instructions for collaborators
-//how to fork it, host it, etc
-//look at live coding practice videos
-//wes bos (coding tutor) JS30.com
-// you don't know JS (v2) for info on this keyword
+

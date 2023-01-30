@@ -1,5 +1,5 @@
 //PHASE-1-PROJECT
-//
+
 //Application features
 // x 1. Sort columns alphanumerically by clicking on the column header
 // x 2. Highlight plants when clicking anywhere on their row
@@ -10,7 +10,7 @@
 // x    1) Click - highlight row, sort columns alphanumerically
 // x    2) DOMContentLoaded - render plants to the list, listener for form, add the column sorting feature
 // x    3) Submit - plant submission form
-//
+
 // x  Must return at least 5 objects from the server with >=3 attributes per object
 // x  Request/Response cycle should be async, using JSON
 // x  Entire app must run on a single page
