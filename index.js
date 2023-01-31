@@ -93,6 +93,7 @@ function formAdd() {
             moistureRequirement: e.target.moistureRequirementInput.value
         }
         addPlant(plantObj)
+        form.reset()
     })
 }
 
