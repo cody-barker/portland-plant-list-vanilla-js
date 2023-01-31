@@ -17,9 +17,9 @@
 // x  No redirects or reloads
 // x  Must implement at least one instance of array iteration (see plantList.forEach in fn initList())
 // x  Detailed README
-//    Video of the features
-//    Blog post
-//    Project Review
+// x  Video of the features
+// x  Blog post
+// x  Project Review
 
 //Stretch goals
 // x  Use json-server in your project to persist your app's interactivity
@@ -111,7 +111,7 @@ function addPlant(plantObj) {
         .catch(error => console.log(error))
 }
 
-//SORT ALPHANUMERICALLY
+//SORT ALPHANUMERICALLY **BONUS FEATURE - REQUIREMENTS ALREADY MET**
 //src = https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript
 // //Quick explanation
 // 1. add a click event to all header (th) cells...
