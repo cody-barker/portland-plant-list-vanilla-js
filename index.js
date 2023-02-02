@@ -19,13 +19,10 @@
 // x  Detailed README
 // x  Video of the features
 // x  Blog post
-// x  Project Review
+// x  Schedule Project Review
 
 //Stretch goals
 // x  Use json-server in your project to persist your app's interactivity
-
-
-
 
 //Run JS after domcontent loaded
 document.addEventListener("DOMContentLoaded", initialize)
@@ -56,7 +53,7 @@ function renderOnePlant(plantObj) {
     const tdHeight = document.createElement('td')
     const tdLightRequirement = document.createElement('td')
     const tdMoistureRequirement = document.createElement('td')
-    //Assign the data cells their corresponding property values
+    //Assign the data cells their corresponding values
     tdBinomialName.innerText = plantObj.binomialName
     tdBinomialName.style.fontStyle = "italic"
     tdCommonName.innerText = plantObj.commonName
@@ -75,7 +72,7 @@ function renderOnePlant(plantObj) {
 function addHighlightListener(newRow) {
     newRow.addEventListener('click', (e) => {
         e.target.parentNode.style.backgroundColor = 
-(e.target.parentNode.style.backgroundColor === 'rgb(4, 170, 109)' ) ? ('transparent'):('rgb(4, 170, 109)');
+        (e.target.parentNode.style.backgroundColor === 'rgb(4, 170, 109)' ) ? ('transparent'):('rgb(4, 170, 109)');
     })
 }
 
@@ -107,7 +104,7 @@ function addPlant(plantObj) {
         body: JSON.stringify(plantObj)
     })
         .then(resp => resp.json())
-        .then(() => renderOnePlant(plantObj))
+        .then((plantObj) => renderOnePlant(plantObj))
         .catch(error => console.log(error))
 }
 
@@ -121,14 +118,29 @@ function addPlant(plantObj) {
 function columnSort() {
     const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
+    //comparer gets 2 cells a and b, and runs a ternary
+    //it compares them to see which comes before the other
+    //it then checks whether the values being compared are not strings AND not "not a number"
+    //if truthy, subtract v2 from v1, otherwise convert v1 to a string and call localCompare on v2
+    //if the return value is less than 1, the values need to swap places
     const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
     v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
     )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 
 // do the work...
+    /** 
+    1. call querySelector on all table headers. for each th, add a click event listener
+    2. that event listener creates a variable called table and assigns it to the mainList div
+    3. then it creates an array of all table rows sans the header row. If n+1 is used, on click the table sorts but the headers disappear
+    4. it then calls the method .sort on the array of table rows to sort the rows in place
+    5. sort is passed an argument of the comparer fn which takes as its first argument (idx) an array
+    6. that array is an html collection of the table headers, and it takes the index of the table header that was selected
+    7. comparers second argument takes the sorted array and changes it from ascending to descending, or vice versa
+    8. then forEach is called on the original table array and the sorted table rows are appended to the mainList table 1 by 1
+     */
     document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
-    const table = th.closest('table');
-    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+    const table = document.querySelector('#mainList');
+    (Array.from(table.querySelectorAll('tr:nth-child(n+2)')))
         .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
         .forEach(tr => table.appendChild(tr) );
 })));
