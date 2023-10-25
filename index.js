@@ -1,6 +1,4 @@
-
 document.addEventListener("DOMContentLoaded", initialize)
-
 
 function initialize () {
     initList()
@@ -48,7 +46,6 @@ function addHighlightListener(newRow) {
     })
 }
 
-
 function formAdd() {
     const form = document.querySelector('form')
     form.addEventListener('submit', (e) => {
@@ -78,7 +75,6 @@ function addPlant(plantObj) {
         .then((plantObj) => renderOnePlant(plantObj))
         .catch(error => console.log(error))
 }
-
 
 function columnSort() {
     const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
